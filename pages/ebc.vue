@@ -5,17 +5,16 @@ import MainTitle from '../components/TypoComponent.vue';
 import { ref } from 'vue';
 import axios from 'axios';
 import ButtonComponent from '../components/ButtonComponent.vue';
-import { useIbuGtStore, useIbuLtStore } from '../stores/store';
+import { useEbcGtStore, useEbcLtStore } from '../stores/store';
 
 const router = useRouter();
 
-const navigateTEebc = (ibuGt?: number, ibuLt?: number) => {
-  const ibuGtStore = useIbuGtStore();
-  const ibuLtStore = useIbuLtStore();
-  ibuGtStore.$state.ibuGt = ibuGt;
-  ibuLtStore.$state.ibuLt = ibuLt;
-
-  router.push('/ebc');
+const navigateToResult = (ebcGt?: number, ebcLt?: number) => {
+  const ebcGtStore = useEbcGtStore();
+  const ebcLtStore = useEbcLtStore();
+  ebcGtStore.$state.ebcGt = ebcGt;
+  ebcLtStore.$state.ebcLt = ebcLt;
+  router.push('/result');
 };
 </script>
 
@@ -24,40 +23,33 @@ const navigateTEebc = (ibuGt?: number, ibuLt?: number) => {
     <Logo />
     <MainTitle
       typoClass="mainTitle"
-      typoChildren="다음 중 어떤 맥주를 선호하시나요?"
+      typoChildren="선호하는 맥주 색상을 알려줘"
     />
     <div class="btn-container">
       <ButtonComponent
         btnClass="btn-start"
-        :onClick="() => navigateTEebc(0, 20)"
-        btnName="부드러운 쓴맛 (파일스너, 위트비어)"
+        :onClick="() => navigateToResult(0, 20)"
+        btnName="투명하고 밝은색"
       />
     </div>
     <div class="btn-container">
       <ButtonComponent
         btnClass="btn-start"
-        :onClick="() => navigateTEebc(20, 40)"
-        btnName="중간 쓴맛 (에일)"
+        :onClick="() => navigateToResult(20, 40)"
+        btnName="가을 노을같은 색"
       />
     </div>
     <div class="btn-container">
       <ButtonComponent
         btnClass="btn-start"
-        :onClick="() => navigateTEebc(40, 60)"
-        btnName="강한쓴맛 (IPA)"
+        :onClick="() => navigateToResult(40, undefined)"
+        btnName="초콜릿같은색"
       />
     </div>
     <div class="btn-container">
       <ButtonComponent
         btnClass="btn-start"
-        :onClick="() => navigateTEebc(60, undefined)"
-        btnName="아주강한 쓴맛 (더블IPA)"
-      />
-    </div>
-    <div class="btn-container">
-      <ButtonComponent
-        btnClass="btn-start"
-        :onClick="() => navigateTEebc()"
+        :onClick="() => navigateToResult()"
         btnName="상관없어"
       />
     </div>
