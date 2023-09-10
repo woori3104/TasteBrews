@@ -1,0 +1,7 @@
+{
+  "editor.autoClosingQuotes": "never",
+  "editor.autoClosingDelete": "never",
+  "editor.autoClosingOvertype": "never",
+  "editor.autoSurround": "never",
+  "prettier.singleQuote": true
+}

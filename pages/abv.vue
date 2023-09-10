@@ -1,40 +1,25 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import { defineStore } from "pinia";
 import Logo from "../components/Logo.vue";
 import MainTitle from "../components/TypoComponent.vue";
 import { ref } from "vue";
 import axios from "axios";
 import ButtonComponent from "../components/ButtonComponent.vue";
-const router = useRouter();
 
-    const navigateToABV = () => {
-      router.push('/abv');
-    }
-
-
+const startFind = () => {};
 </script>
 
 <template>
   <div id="app">
     <Logo />
-    <MainTitle typoClass="mainTitle" typoChildren="내 취향의 맥주를 알려줘" />
+    <MainTitle />
     <div class="btn-container">
-      <ButtonComponent btnClass="btn-start" :onClick="navigateToABV" btnName="start"/>
+      <button class="btn-start">Start</button>
     </div>
   </div>
 </template>
 
 <style>
-.mainTitle {
-  font-family: "UhBeeMiMi";
-  font-weight: 800;
-  font-sizeå: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #4d769e;
-}
-
 .btn-container {
   padding: 20px;
   display: flex;
@@ -42,12 +27,11 @@ const router = useRouter();
   align-items: center;
   height: 400px;
 }
-
 .btn-start {
   border-radius: 5%;
   width: 200px;
   height: 60px;
-  font-size: 24px;
+  font-size: 20px;
   background-color: #a5c4cc;
   color: #4d769e;
   font-family: "UhBeeMiMi";

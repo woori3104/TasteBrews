@@ -1,25 +1,31 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue';
 
-export default defineComponent({
-  props: {
-    btnName: {
-      type: String,
-      required: true
-    },
-    btnClass: {
-      type: String,
-      default: ''
-    },
-    onClick: {
-      type: Function,
-      required: false
-    }
+const props = defineProps({
+  btnName: {
+    type: String,
+    required: true,
+  },
+  btnClass: {
+    type: String,
+    default: '',
+  },
+  onClick: {
+    type: Function,
+    required: false,
   },
 });
-</script>
+
+const handleClick = () => {
+  props.onClick?.();
+}
+
 </script>
 
 <template>
-  <button :class="btnClass" @click="onClick">{{ btnName }}</button>
+  <button :class="btnClass" @click="handleClick">{{ btnName }}</button>
 </template>
+
+<style>
+
+
+</style>
