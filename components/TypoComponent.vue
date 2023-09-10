@@ -19,5 +19,14 @@ export default defineComponent({
 </template>
 
 <style>
+.mainTitle {
+  font-family: "UhBeeMiMi";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4d769e;
 
+  font-weight: 800;
+  font-size: 28px;
+}
 </style>

@@ -7,9 +7,9 @@ import axios from "axios";
 import ButtonComponent from "../components/ButtonComponent.vue";
 const router = useRouter();
 
-    const navigateToABV = () => {
-      router.push('/abv');
-    }
+const navigateToABV = () => {
+  router.push('/abv');
+}
 
 
 </script>
@@ -25,15 +25,7 @@ const router = useRouter();
 </template>
 
 <style>
-.mainTitle {
-  font-family: "UhBeeMiMi";
-  font-weight: 800;
-  font-sizeå: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #4d769e;
-}
+
 
 .btn-container {
   padding: 20px;
