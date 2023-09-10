@@ -13,6 +13,7 @@
     "nuxt": "^3.7.1"
   },
   "dependencies": {
+    "@nuxt/vue-app": "^2.17.1",
     "@pinia/nuxt": "^0.4.11",
     "pinia": "^2.1.6"
   },

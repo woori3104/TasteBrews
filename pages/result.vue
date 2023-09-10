@@ -9,6 +9,7 @@ import {
   useIbuGtStore,
   useIbuLtStore,
 } from '../stores/store';
+import { useRoute } from 'vue-router';
 
 const beers = ref([]);
 
@@ -47,8 +48,13 @@ onMounted(fetchBeers);
     <MainTitle typoClass="mainTitle" typoChildren="Recommended Beers" />
     <div class="grid" v-if="beers.length">
       <div v-for="beer in beers" :key="beer.id" class="grid-item">
-        <img class="beerImage" :src="beer.image_url" alt="Beer Image" />
-        <h3>{{ beer.name }}</h3>
+        <nuxt-link :to="`/beer/${beer.id}`">
+          <div
+            class="img-container"
+            :style="{ backgroundImage: `url(${beer.image_url})` }"
+          ></div>
+          <h3>{{ beer.name }}</h3>
+        </nuxt-link>
       </div>
     </div>
 
@@ -99,7 +105,12 @@ onMounted(fetchBeers);
   padding: 5px 0;
   margin: 0;
 }
-.beerImage {
-  width: 200px;
+.img-container {
+  width: 150px; /* 원하는 가로 크기 */
+  height: 150px; /* 원하는 세로 크기 */
+  background-color: white; /* 흰색 배경 */
+  background-size: contain; /* 이미지가 컨테이너를 가득 채우도록 함 */
+  background-position: center; /* 이미지를 중앙에 위치시킴 */
+  background-repeat: no-repeat; /* 이미지가 반복되지 않도록 함 */
 }
 </style>
