@@ -8,6 +8,7 @@
 
 <style>
 .centered-image {
+  padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;

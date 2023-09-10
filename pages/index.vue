@@ -1,32 +1,39 @@
 <script setup lang="ts">
-import logo from "../components/Logo.vue";
-import mainTitle from "../components/MainTitle.vue";
+import Logo from "../components/Logo.vue";
+import MainTitle from "../components/MainTitle.vue";
 import { ref } from "vue";
 import axios from "axios";
-const location = ref<{ latitude: number; longitude: number } | null>(null);
-const country = ref<string>("");
+import ButtonComponent from "../components/ButtonComponent.vue";
 
-const getBreweriesInCurrentLocation = async () => {
-  try {
-    const response = await axios.get(
-      `https://api.openbrewerydb.org/breweries?by_country=${country.value}`
-    );
-    const data = response.data;
-    country.value = "";
-  } catch (error) {
-    console.error(error);
-  }
-};
+const startFind = () => {};
 </script>
 
 <template>
   <div id="app">
-    <logo />
-    <mainTitle />
-    <div class="body" />
+    <Logo />
+    <MainTitle />
+    <div class="btn-container">
+      <button class="btn-start">Start</button>
+    </div>
   </div>
 </template>
 
 <style>
+.btn-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+.btn-start {
+  border-radius: 5%;
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+  background-color: #a5c4cc;
+  color: #4d769e;
+  font-family: "UhBeeMiMi";
+}
 /*스타일링. */
 </style>
